@@ -1,0 +1,17 @@
+body{
+    background-color: #C0C0C0;
+}
+
+nav{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.nav-links{
+    text-decoration: none;
+    font-weight: bold;
+    color: darkred;
+}
+.nav-links:hover{
+    color: darkblue;
+}
