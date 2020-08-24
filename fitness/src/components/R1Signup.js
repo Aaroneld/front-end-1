@@ -58,7 +58,7 @@ const R1Signup = () => {
         // .catch(err => {
         //   console.dir(err)
         // })
-        push("/")    
+        push("/")  // this needs to be changed
     }
 
     useEffect(() => {
