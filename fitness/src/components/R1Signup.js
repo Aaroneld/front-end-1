@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
+import axios from 'axios'
 
 // We'll need your form validation in this form, as well as the password matching confirmation I mentioned on Friday. Feel free to use whatever you like for validation. I do have Yup installed already if you want to use it
 
@@ -14,33 +15,43 @@ const R1Signup = () => {
         role: "",
     }
     const [newMember, setNewMember] = useState([])
-    // const [formValues, setFormValues] = useState([initValues])
-
+    const [formValues, setFormValues] = useState([initValues])
+    
+    // const postNewMember = newSignups => {
+    //     axios.post('https://anytime-fitness.herokuapp.com//api/auth/register', newSignups)
+    //     .then(res => {
+    //       setNewMember([...newMember, res.data])
+    //     })
+    //     .catch(err => {
+    //       debugger
+    //     })
+    //     .finally(() => {
+    //       setFormValues(initValues)
+    //     })
+    // } // this is for the POST request , I tried but it is giving me data as html. I might did something wrong
     const handleChanges = evt => {
         // React 1, please setup this functionality, we just need to set the state to the user inputs for this section
-        // setFormValues({...formValues,[evt.target.name]:evt.target.value})
-        setNewMember({...newMember,[evt.target.name]:evt.target.value})
+        setFormValues({...formValues,[evt.target.name]:evt.target.value})
+        
     }
     const handleSubmit = evt => {
-        evt.preventDefault()
+        evt.preventDefault();
         const newSignups = {
-            name: newMember.name,
-            age: newMember.age,
-            password:newMember.password,
-            confirmPassword:newMember.confirmedPassword,
-            email: newMember.email,
-            role: newMember.role,
+            name: formValues.name.trim(),
+            age: formValues.age,
+            email: formValues.email.trim(),
+            password:formValues.password.trim(),
+            confirmedPassword:formValues.confirmedPassword.trim(),
+            role: formValues.role,
         }
 
-        if (newSignups.password !== newSignups.confirmedPassword) {
-            alert('Wrong password')
-        } else {
-            return ''
-        }
+        setNewMember([...newMember,newSignups]) // added this to see if I get data from inputs.
 
-       setNewMember({...newMember,newSignups})
-      
+        // postNewMember(newSignups)     
     }
+
+    
+    
     
 
     return ( 
@@ -70,7 +81,7 @@ const R1Signup = () => {
             </label>
 
             <label>Password&nbsp;
-                <input type="text"
+                <input type="password"
                 name="password"
                 placeholder="password"
                 value={newMember.password}
@@ -78,7 +89,7 @@ const R1Signup = () => {
             </label>
 
             <label>Confirm Password&nbsp;
-                <input type="text"
+                <input type="password"
                 name="confirmedPassword"
                 placeholder="Confirm password"
                 value={newMember.confirmedPassword}
@@ -89,7 +100,7 @@ const R1Signup = () => {
                 <select value={newMember.role}
                 onChange={handleChanges} name='role'>
                 <option value=''>- Select an option -</option>
-                <option value='member'>Member</option>
+                <option value='Member'>Member</option>
                 <option value='Couch'>Couch</option>
                 
                 </select>
