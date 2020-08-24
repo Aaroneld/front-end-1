@@ -2,11 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { useHistory } from 'react-router-dom'
 import axios from 'axios'
 import * as yup from 'yup'
-import formSchema from "../utilities/R1 Validation/formSchema";
-
-// We'll need your form validation in this form, as well as the password matching confirmation I mentioned on Friday. Feel free to use whatever you like for validation. I do have Yup installed already if you want to use it
-
-// I went ahead and setup most of this form as I remembered that we would need this sign up form to also create our memebers, I don't know why I thought they would be two seperate things at first
+import formSchema from "../utilities/formSchemaSignup";
 
 const R1Signup = () => {
     const { push } = useHistory()
@@ -17,36 +13,45 @@ const R1Signup = () => {
         password: "",
         role: "",
     }
-    // const initialFormErrors = {
-    //     username: '',
-    //     email: '',
-    //     role: '',
-    //     civil: '',
-    //   }
-   
+    const initialFormErrors = {
+        name:'',
+        username: '',
+        email: '',
+        role: '',
+        password:'',
+        
+      }
+      const initialDisabled = true
     const [formValues, setFormValues] = useState([initValues])
-    // const [formErrors, setFormErrors] = useState(initialFormErrors) 
-    // const [disabled, setDisabled] = useState(initialDisabled) 
+    const [formErrors, setFormErrors] = useState(initialFormErrors) 
+    const [disabled, setDisabled] = useState(initialDisabled) 
 
     
    
     const handleChanges = evt => {
-        // React 1, please setup this functionality, we just need to set the state to the user inputs for this section
+        
+        const {name,value} = evt.target
+        yup
+            .reach(formSchema, name)
+            .validate(value)
+            .then(valid => {
+                setFormErrors({
+                    ...formErrors,[name]:"",
+                })
+            })
+            .catch(err => {
+                setFormErrors({
+                    ...formErrors,[name]:err.errors[0]
+                })
+            })
 
-        // yup
-        //     .reach(formSchema, evt.target.name)
-        //     .validate(evt.target.value)
-        //     .then(valid => {
-                
-        //     })
 
-
-        setFormValues({...formValues,[evt.target.name]:evt.target.value})
+        setFormValues({...formValues,[name]:value})
         
     }
     const handleSubmit = evt => {
         evt.preventDefault();
-        // axios.post('https://anytime-fitness.herokuapp.com//api/auth/register', formValues)
+        // axios.post('https://anytime-fitness.herokuapp.com/api/auth/register', formValues)
         // .then(res => {
         //   console.log(res)
         // })
@@ -56,7 +61,12 @@ const R1Signup = () => {
         push("/")    
     }
 
-    
+    useEffect(() => {
+        formSchema.isValid(formValues)
+          .then(valid => {
+            setDisabled(!valid);
+          })
+      }, [formValues])
     
     
 
@@ -72,7 +82,7 @@ const R1Signup = () => {
 
             <label>Username&nbsp;
                 <input type="text"
-                name="Username"
+                name="username"
                 placeholder="username"
                 value={formValues.username}
                 onChange={handleChanges} />
@@ -94,25 +104,23 @@ const R1Signup = () => {
                 onChange={handleChanges} />
             </label>
 
-            <label>Confirm Password&nbsp;
-                <input type="password"
-                name="confirmedPassword"
-                placeholder="Confirm password"
-                value={formValues.confirmedPassword}
-                onChange={handleChanges} />
-            </label>
-
             <label>Role&nbsp;
+
                 <select value={formValues.role}
                 onChange={handleChanges} name='role'>
                 <option value=''>- Select an option -</option>
                 <option value='user'>User</option>
                 <option value='instructor'>Instructor</option>
-                
                 </select>
             </label>
-
-            <button>Sign Up!</button>
+            <div className='errors'>
+            <div>{formErrors.username}</div>
+            <div>{formErrors.email}</div>
+            <div>{formErrors.role}</div>
+            <div>{formErrors.name}</div>
+            <div>{formErrors.password}</div>
+            <button disabled={disabled}>Sign Up!</button>
+            </div>
 
         </form>
      );
