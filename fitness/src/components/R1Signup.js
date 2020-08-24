@@ -1,53 +1,59 @@
 import React, { useState, useEffect } from 'react'
+import { useHistory } from 'react-router-dom'
 import axios from 'axios'
+import * as yup from 'yup'
+import formSchema from "./R1 Validation/formSchema";
 
 // We'll need your form validation in this form, as well as the password matching confirmation I mentioned on Friday. Feel free to use whatever you like for validation. I do have Yup installed already if you want to use it
 
 // I went ahead and setup most of this form as I remembered that we would need this sign up form to also create our memebers, I don't know why I thought they would be two seperate things at first
 
 const R1Signup = () => {
+    const { push } = useHistory()
     const initValues = {
         name: "",
         age: 18,
         email: "",
         password: "",
-        confirmedPassword: "",
         role: "",
     }
-    const [newMember, setNewMember] = useState([])
+    // const initialFormErrors = {
+    //     username: '',
+    //     email: '',
+    //     role: '',
+    //     civil: '',
+    //   }
+   
     const [formValues, setFormValues] = useState([initValues])
+    // const [formErrors, setFormErrors] = useState(initialFormErrors) 
+    // const [disabled, setDisabled] = useState(initialDisabled) 
+
     
-    // const postNewMember = newSignups => {
-    //     axios.post('https://anytime-fitness.herokuapp.com//api/auth/register', newSignups)
-    //     .then(res => {
-    //       setNewMember([...newMember, res.data])
-    //     })
-    //     .catch(err => {
-    //       debugger
-    //     })
-    //     .finally(() => {
-    //       setFormValues(initValues)
-    //     })
-    // } // this is for the POST request , I tried but it is giving me data as html. I might did something wrong
+   
     const handleChanges = evt => {
         // React 1, please setup this functionality, we just need to set the state to the user inputs for this section
+
+        // yup
+        //     .reach(formSchema, evt.target.name)
+        //     .validate(evt.target.value)
+        //     .then(valid => {
+                
+        //     })
+
+
         setFormValues({...formValues,[evt.target.name]:evt.target.value})
         
     }
     const handleSubmit = evt => {
         evt.preventDefault();
-        const newSignups = {
-            name: formValues.name.trim(),
-            age: formValues.age,
-            email: formValues.email.trim(),
-            password:formValues.password.trim(),
-            confirmedPassword:formValues.confirmedPassword.trim(),
-            role: formValues.role,
-        }
-
-        setNewMember([...newMember,newSignups]) // added this to see if I get data from inputs.
-
-        // postNewMember(newSignups)     
+        // axios.post('https://anytime-fitness.herokuapp.com//api/auth/register', formValues)
+        // .then(res => {
+        //   console.log(res)
+        // })
+        // .catch(err => {
+        //   console.dir(err)
+        // })
+        push("/")    
     }
 
     
@@ -60,7 +66,7 @@ const R1Signup = () => {
                 <input type="text"
                 name="name"
                 placeholder="username"
-                value={newMember.name}
+                value={formValues.name}
                 onChange={handleChanges} />
             </label>
 
@@ -68,7 +74,7 @@ const R1Signup = () => {
                 <input type="number"
                 name="age"
                 placeholder="minimum 18"
-                value={newMember.age}
+                value={formValues.age}
                 onChange={handleChanges} />
             </label>
 
@@ -76,7 +82,7 @@ const R1Signup = () => {
                 <input type="email"
                 name="email"
                 placeholder="email"
-                value={newMember.email}
+                value={formValues.email}
                 onChange={handleChanges} />
             </label>
 
@@ -84,7 +90,7 @@ const R1Signup = () => {
                 <input type="password"
                 name="password"
                 placeholder="password"
-                value={newMember.password}
+                value={formValues.password}
                 onChange={handleChanges} />
             </label>
 
@@ -92,12 +98,12 @@ const R1Signup = () => {
                 <input type="password"
                 name="confirmedPassword"
                 placeholder="Confirm password"
-                value={newMember.confirmedPassword}
+                value={formValues.confirmedPassword}
                 onChange={handleChanges} />
             </label>
 
             <label>Role&nbsp;
-                <select value={newMember.role}
+                <select value={formValues.role}
                 onChange={handleChanges} name='role'>
                 <option value=''>- Select an option -</option>
                 <option value='Member'>Member</option>
