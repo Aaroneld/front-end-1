@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { useHistory } from 'react-router-dom'
 import axios from 'axios'
 import * as yup from 'yup'
-import formSchema from "./R1 Validation/formSchema";
+import formSchema from "../utilities/R1 Validation/formSchema";
 
 // We'll need your form validation in this form, as well as the password matching confirmation I mentioned on Friday. Feel free to use whatever you like for validation. I do have Yup installed already if you want to use it
 
@@ -12,7 +12,7 @@ const R1Signup = () => {
     const { push } = useHistory()
     const initValues = {
         name: "",
-        age: 18,
+        username: "",
         email: "",
         password: "",
         role: "",
@@ -62,19 +62,19 @@ const R1Signup = () => {
 
     return ( 
         <form onSubmit={handleSubmit}>
-            <label>Username&nbsp;
+            <label>Name&nbsp;
                 <input type="text"
                 name="name"
-                placeholder="username"
+                placeholder="name"
                 value={formValues.name}
                 onChange={handleChanges} />
             </label>
 
-            <label>Age&nbsp;
-                <input type="number"
-                name="age"
-                placeholder="minimum 18"
-                value={formValues.age}
+            <label>Username&nbsp;
+                <input type="text"
+                name="Username"
+                placeholder="username"
+                value={formValues.username}
                 onChange={handleChanges} />
             </label>
 
@@ -106,8 +106,8 @@ const R1Signup = () => {
                 <select value={formValues.role}
                 onChange={handleChanges} name='role'>
                 <option value=''>- Select an option -</option>
-                <option value='Member'>Member</option>
-                <option value='Couch'>Couch</option>
+                <option value='user'>User</option>
+                <option value='instructor'>Instructor</option>
                 
                 </select>
             </label>
