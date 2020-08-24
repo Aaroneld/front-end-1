@@ -10,40 +10,93 @@ const R1Signup = () => {
         age: 18,
         email: "",
         password: "",
-        confirmedPassword: ""
+        confirmedPassword: "",
+        role: "",
     }
-    const [newMember, setNewMember] = useState(initValues)
+    const [newMember, setNewMember] = useState([])
+    // const [formValues, setFormValues] = useState([initValues])
 
     const handleChanges = evt => {
         // React 1, please setup this functionality, we just need to set the state to the user inputs for this section
+        // setFormValues({...formValues,[evt.target.name]:evt.target.value})
+        setNewMember({...newMember,[evt.target.name]:evt.target.value})
     }
     const handleSubmit = evt => {
-        // React 1, please setup this functionality, I'll help with the post request here if needed.
+        evt.preventDefault()
+        const newSignups = {
+            name: newMember.name,
+            age: newMember.age,
+            password:newMember.password,
+            confirmPassword:newMember.confirmedPassword,
+            email: newMember.email,
+            role: newMember.role,
+        }
+
+        if (newSignups.password !== newSignups.confirmedPassword) {
+            alert('Wrong password')
+        } else {
+            return ''
+        }
+
+       setNewMember({...newMember,newSignups})
+      
     }
+    
 
     return ( 
         <form onSubmit={handleSubmit}>
-            <input type="text"
-            name="name"
-            value={newMember.name}
-            onChange={handleChanges} />
-            <input type="number"
-            name="age"
-            value={newMember.age}
-            onChange={handleChanges} />
-            <input type="email"
-            name="email"
-            value={newMember.email}
-            onChange={handleChanges} />
-            <input type="text"
-            name="password"
-            value={newMember.password}
-            onChange={handleChanges} />
-            <input type="text"
-            name="confirmedPassword"
-            value={newMember.confirmedPassword}
-            onChange={handleChanges} />
+            <label>Username&nbsp;
+                <input type="text"
+                name="name"
+                placeholder="username"
+                value={newMember.name}
+                onChange={handleChanges} />
+            </label>
+
+            <label>Age&nbsp;
+                <input type="number"
+                name="age"
+                placeholder="minimum 18"
+                value={newMember.age}
+                onChange={handleChanges} />
+            </label>
+
+            <label>Email&nbsp;
+                <input type="email"
+                name="email"
+                placeholder="email"
+                value={newMember.email}
+                onChange={handleChanges} />
+            </label>
+
+            <label>Password&nbsp;
+                <input type="text"
+                name="password"
+                placeholder="password"
+                value={newMember.password}
+                onChange={handleChanges} />
+            </label>
+
+            <label>Confirm Password&nbsp;
+                <input type="text"
+                name="confirmedPassword"
+                placeholder="Confirm password"
+                value={newMember.confirmedPassword}
+                onChange={handleChanges} />
+            </label>
+
+            <label>Role&nbsp;
+                <select value={newMember.role}
+                onChange={handleChanges} name='role'>
+                <option value=''>- Select an option -</option>
+                <option value='member'>Member</option>
+                <option value='Couch'>Couch</option>
+                
+                </select>
+            </label>
+
             <button>Sign Up!</button>
+
         </form>
      );
 }
