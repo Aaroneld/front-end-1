@@ -11,7 +11,7 @@ const R1WorkoutForm = () => {
         intensity:"",
         location:"",
         date: "", //hast to be a string in 04/19/2020 format
-        max_size: 10,
+        max_size: "",
         duration: 60.00, // has to be a float
         signedUp: false,
 
@@ -95,14 +95,16 @@ const R1WorkoutForm = () => {
                     <option>20</option>
                 </select>
             </label>
-            <label>Sign up
-                <input
-                type="checkbox"
-                name="signedUp"
-                checked={newWorkout.signedUp}
-                onChange={handleChanges}
-            />
+
+            <label>Maximum Size&nbsp;
+                <input type="number"
+                name="max-size"
+                placeholder="max size"
+                pattern='[0-9]{0,5}'
+                value={newWorkout.max_size}
+                onChange={handleChanges} />
             </label>
+            
             <button>Submit</button>
 
 
