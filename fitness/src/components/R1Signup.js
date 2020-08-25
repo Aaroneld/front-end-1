@@ -105,7 +105,6 @@ const R1Signup = () => {
             </label>
 
             <label>Role&nbsp;
-
                 <select value={formValues.role}
                 onChange={handleChanges} name='role'>
                 <option value=''>- Select an option -</option>
@@ -113,13 +112,14 @@ const R1Signup = () => {
                 <option value='instructor'>Instructor</option>
                 </select>
             </label>
+
             <div className='errors'>
-            <div>{formErrors.username}</div>
-            <div>{formErrors.email}</div>
-            <div>{formErrors.role}</div>
-            <div>{formErrors.name}</div>
-            <div>{formErrors.password}</div>
-            <button disabled={disabled}>Sign Up!</button>
+                <div>{formErrors.username}</div>
+                <div>{formErrors.email}</div>
+                <div>{formErrors.role}</div>
+                <div>{formErrors.name}</div>
+                <div>{formErrors.password}</div>
+                <button disabled={disabled}>Sign Up!</button>
             </div>
 
         </form>
