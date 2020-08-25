@@ -29,7 +29,7 @@ const Workout = (props) => {
     const [thisClass, setThisClass] = useState(initState)
 
     useEffect(() => {
-        axiosAuth().get(`https://anytime-fitness.herokuapp.com/api/auth/users/classes/${id}`)
+        axiosAuth().get(`https://anywhere-fitness-team2.herokuapp.com/api/auth/users/classes/${id}`)
         .then(res => {
             console.log(res)
             setThisClass(res.data.data)
@@ -43,7 +43,7 @@ const Workout = (props) => {
             ...thisClass,
             signedUp: true
         })
-        axiosAuth().put(`https://anytime-fitness.herokuapp.com/api/auth/users/classes/${id}`, thisClass)
+        axiosAuth().put(`https://anywhere-fitness-team2.herokuapp.com/api/auth/users/classes/${id}`, thisClass)
         .then(res => {
             console.log(res)
             props.updateTrue()

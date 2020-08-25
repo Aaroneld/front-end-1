@@ -6,7 +6,7 @@ export const GET_WORKOUTS_ERROR = "GET_WORKOUTS_ERROR"
 export const getWorkouts = () => (dispatch) => {
     dispatch({ type: GET_WORKOUTS_START })
 
-    axiosAuth().get("https://anytime-fitness.herokuapp.com/api/auth/users/classes")
+    axiosAuth().get("https://anywhere-fitness-team2.herokuapp.com/api/auth/users/classes")
     .then(res => {
         console.log(res.data)
         dispatch({ type: GET_WORKOUTS_SUCCESS, payload: res.data.data })

@@ -51,7 +51,7 @@ const R1Signup = () => {
     }
     const handleSubmit = evt => {
         evt.preventDefault();
-        axios.post('https://anytime-fitness.herokuapp.com/api/auth/register', formValues)
+        axios.post('https://anywhere-fitness-team2.herokuapp.com/api/auth/register', formValues)
         .then(res => {
           console.log(res)
         })

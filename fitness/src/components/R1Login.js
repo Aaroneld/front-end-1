@@ -20,7 +20,7 @@ const R1Login = (props) => {
 
     const onSubmit = evt => {
         evt.preventDefault();
-        axios.post('https://anytime-fitness.herokuapp.com/api/auth/login', loginState)
+        axios.post('https://anywhere-fitness-team2.herokuapp.com/api/auth/login', loginState)
         .then(res => {
           localStorage.setItem("token", res.data.token)
           console.log(res)
