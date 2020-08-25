@@ -15,7 +15,7 @@ const formSchema = yup.object().shape({
       .required('Must include email address'),
     role: yup
       .string()
-      .oneOf(['user', 'instrutor'], 'You must select a role')
+      .oneOf(['user', 'instructor'], 'You must select a role')
       .required('You must select a role'),
     password: yup
     .string()

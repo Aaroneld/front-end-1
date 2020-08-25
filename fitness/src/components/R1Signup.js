@@ -22,7 +22,7 @@ const R1Signup = () => {
         
       }
       const initialDisabled = true
-    const [formValues, setFormValues] = useState([initValues])
+    const [formValues, setFormValues] = useState(initValues)
     const [formErrors, setFormErrors] = useState(initialFormErrors) 
     const [disabled, setDisabled] = useState(initialDisabled) 
 
@@ -51,13 +51,13 @@ const R1Signup = () => {
     }
     const handleSubmit = evt => {
         evt.preventDefault();
-        // axios.post('https://anytime-fitness.herokuapp.com/api/auth/register', formValues)
-        // .then(res => {
-        //   console.log(res)
-        // })
-        // .catch(err => {
-        //   console.dir(err)
-        // })
+        axios.post('https://anytime-fitness.herokuapp.com/api/auth/register', formValues)
+        .then(res => {
+          console.log(res)
+        })
+        .catch(err => {
+          console.dir(err)
+        })
         push("/")
     }
 

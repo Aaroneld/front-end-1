@@ -28,7 +28,7 @@ export function workoutsReducer(state = initState, action){
             return {
                 ...state,
                 loading: false,
-                workouts: [...state.workouts, action.payload]
+                workouts: action.payload
             }
         
         case GET_WORKOUTS_ERROR:

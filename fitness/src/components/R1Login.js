@@ -1,8 +1,10 @@
 import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom'
 import axios from 'axios'
+import { connect } from 'react-redux'
+import { updateTrue } from '../actions/usersActions'
 
-const R1Login = () => {
+const R1Login = (props) => {
     const { push } = useHistory()
     const iniState = {
         username:"",
@@ -18,14 +20,15 @@ const R1Login = () => {
 
     const onSubmit = evt => {
         evt.preventDefault();
-        // axios.post('https://anytime-fitness.herokuapp.com/api/auth/login', loginState)
-        // .then(res => {
-        // localStorage.setItem("token", res.data.payload)
-        //   console.log(res)
-        // })
-        // .catch(err => {
-        //   console.dir(err)
-        // })
+        axios.post('https://anytime-fitness.herokuapp.com/api/auth/login', loginState)
+        .then(res => {
+          localStorage.setItem("token", res.data.token)
+          console.log(res)
+        })
+        .catch(err => {
+          console.dir(err)
+        })
+        props.updateTrue()
         push("/")
     }
 
@@ -51,4 +54,4 @@ const R1Login = () => {
      );
 }
  
-export default R1Login;
+export default connect(null, { updateTrue })(R1Login);
