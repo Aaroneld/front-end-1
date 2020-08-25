@@ -8,8 +8,9 @@ import axiosWithAuth from './utilities/apiUtilities'
 import { connect } from 'react-redux'
 import { getWorkouts } from './actions/workoutsActions'
 import './App.css'
+import R1WorkoutForm from './components/instructors/R1WorkoutForm'
 
-function App() {
+function App(props) {
 
   useEffect(() => {
     // This will fetch the workout list and set it to our redux state

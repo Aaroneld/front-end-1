@@ -3,6 +3,7 @@ import { useHistory } from 'react-router-dom'
 import axios from 'axios'
 import * as yup from 'yup'
 import formSchema from "../utilities/formSchemaSignup";
+import R1WorkoutForm from './instructors/R1WorkoutForm';
 
 const R1Signup = () => {
     const { push } = useHistory()
@@ -119,7 +120,7 @@ const R1Signup = () => {
                 <div>{formErrors.role}</div>
                 <div>{formErrors.name}</div>
                 <div>{formErrors.password}</div>
-                <button disabled={disabled}>Sign Up!</button>
+                <button disabled={disabled}>Sign Up</button>
             </div>
 
         </form>
