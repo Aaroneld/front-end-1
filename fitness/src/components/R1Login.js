@@ -41,7 +41,6 @@ const StyleLogin = styled.div `
         text-align:center;
     }
     button {
-     
         display: inline-block;
         width:180px;
         height:50px;

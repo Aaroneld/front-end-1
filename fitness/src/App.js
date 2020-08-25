@@ -27,7 +27,7 @@ function App(props) {
       <Switch>
         <Route exact path="/" component={HomePage} />
         <Route path="/signup" component={R1Signup} />
-        <Route path="/login" component={R1WorkoutForm} />
+        <Route path="/login" component={R1Login} />
         {/* We'll have private routes for member workouts and coach workouts */}
       </Switch>
     </div>

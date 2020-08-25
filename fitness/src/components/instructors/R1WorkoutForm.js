@@ -100,7 +100,7 @@ const R1WorkoutForm = () => {
                 <input type="number"
                 name="max-size"
                 placeholder="max size"
-                pattern='[0-9]{0,5}'
+                
                 value={newWorkout.max_size}
                 onChange={handleChanges} />
             </label>
