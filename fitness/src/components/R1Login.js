@@ -1,6 +1,16 @@
 import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom'
 import axios from 'axios'
+import styled from 'styled-components'
+
+const StyleLogin = styled.form `
+    font-family: sans-serif;
+    background-color: #fce4ec;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+`
 
 const R1Login = () => {
     const { push } = useHistory()
@@ -30,16 +40,18 @@ const R1Login = () => {
     }
 
     return ( 
-        <form onSubmit={onSubmit}>
+        <StyleLogin onSubmit={onSubmit}>
            <header><h1>Login</h1></header> 
-           <label>Username&nbsp;
+           <label>
+                 <strong>Username</strong>
                 <input type="text"
                 name="username"
                 placeholder="username"
                 value={loginState.username}
                 onChange={onChange} />
             </label>
-            <label>Password&nbsp;
+            <label>
+                <strong>Password</strong>
                 <input type="password"
                 name="password"
                 placeholder="password"
@@ -47,7 +59,7 @@ const R1Login = () => {
                 onChange={onChange} />
             </label>
             <button>Login</button>
-        </form>
+        </StyleLogin>
      );
 }
  

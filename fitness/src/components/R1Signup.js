@@ -3,7 +3,10 @@ import { useHistory } from 'react-router-dom'
 import axios from 'axios'
 import * as yup from 'yup'
 import formSchema from "../utilities/formSchemaSignup";
-import R1WorkoutForm from './instructors/R1WorkoutForm';
+import styled from 'styled-components'
+
+
+
 
 const R1Signup = () => {
     const { push } = useHistory()

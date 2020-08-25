@@ -41,52 +41,38 @@ const R1WorkoutForm = () => {
             </label>
 
             <label>Intructor&nbsp;
-                <select value={newWorkout.instructor_name}
-                onChange={handleChanges} name='instructor_name'>
-                <option value=''>- Select an instructor -</option>
-                <option value='tom'>Tom</option>
-                <option value='sara'>Sara</option>
-                <option value='tim'>Tim</option>
-                <option value='josh'>Josh</option>
-                <option value='Timmy'>Timmy</option>
-                </select>
+            <input type="text"
+                name="instructor_name"
+                placeholder="instructor name"
+                value={newWorkout.instructor_name}
+                onChange={handleChanges} />
             </label>
 
             <label>Type&nbsp;
-                <select value={newWorkout.type}
-                onChange={handleChanges} name='type'>
-                <option value=''>- Select workout -</option>
-                <option value='aerobic'>Aerobic</option>
-                <option value='strength'>Strength</option>
-                <option value='balance'>Balance </option>
-                <option value='endurance'>Endurance</option>
-                <option value='flexibility'>Flexibility</option>
-                </select>
+                <input type="text"
+                name="type"
+                placeholder="type"
+                value={newWorkout.type}
+                onChange={handleChanges} />
             </label>
 
             <label>Intesity&nbsp;
                 <select value={newWorkout.intensity}
                 onChange={handleChanges} name='intensity'>
                 <option value>- Select intesity -</option>
-                <option>Seat</option>
-                <option>Daily Activity</option>
-                <option>Base </option>
-                <option>Heart Health</option>
-                <option>Max</option>
+                <option>Low</option>
+                <option>Medium</option>
+                <option>High </option>
                 </select>
             </label>
 
 
             <label>Location&nbsp;
-                <select value={newWorkout.location}
-                onChange={handleChanges} name="location">
-                <option value>- Select Location -</option>
-                <option>New York</option>
-                <option>London</option>
-                <option>Seattle </option>
-                <option>Washinton</option>
-                <option>Lexignton</option>
-                </select>
+                <input type="text"
+                name="location"
+                placeholder="type"
+                value={newWorkout.location}
+                onChange={handleChanges} />
             </label>
 
             <label>Choose a date
@@ -116,7 +102,8 @@ const R1WorkoutForm = () => {
                 checked={newWorkout.signedUp}
                 onChange={handleChanges}
             />
-        </label>
+            </label>
+            <button>Submit</button>
 
 
 
