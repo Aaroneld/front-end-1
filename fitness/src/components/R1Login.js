@@ -4,58 +4,55 @@ import axios from 'axios'
 import styled from 'styled-components'
 
 const StyleLogin = styled.div `
-    font-family: sans-serif;
-    background-color: #fce4ec;
+    font-family:sans-serif;
+    background-image: url('https://images.unsplash.com/photo-1574680096145-d05b474e2155?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80');
+    background-size:cover;
     display:flex;
+    background-size: cover;
     justify-content:center;
     align-items:center;
     height:100vh;
     form {
-    width:450px;
-    background: #fff;
-    box-shadow: 0 5px 21 px #d4d4d4;
-    border-radius:8px;
-        h1{
-            text-align:center;
-            margin-bottom: 5%;
-        }
+        position: absolute;
+        top:50%;
+        left:50%;
+        transform: translate(-50%,-50%);
+        width:400px;
+        padding:40px;
+        background: rgba(0,0,0,0.8);
+        box-sizing:border-box;
+        box-shadow: 0 15px 25px rgba(0,0,0,0.5);
+        border-radius:10px;
     }
-    label{
-        position:relative;
-        display:block;
-        margin-bottom:25px;
-    }
-    input {
-        width:90%;
-        height:50px;
-        padding:0px 20px;
-        margin: 0% 0% 0% 1%;
-        font-size:18px;
-        border-radius:50px;
-        border:0;
-        background-color: #e8eaf6;
+    h1 {
+        color: #fff;
+        text-align: center;
     }
     strong{
-        margin:5px;
-        display: block;
-        text-align:center;
+        color: #fff;
+        text-align: center;
+        font-size: 18px;
+    }
+    input {
+        width:100%;
+        padding: 10px 0 ;
+        font-size: 16px;
+        color: #fff;
+        margin-bottom:30px;
+        border: none;
+        border-bottom: 1px solid #fff;
+        outline:none;
+        background: transparent;
     }
     button {
-        display: inline-block;
-        width:180px;
-        height:50px;
-        line-height:50px;
-        background: linear-gradient(to left, #e91e63, #f44336); 
-        box-shadow: 0 10px 25px #e31e6360;
-        border-radius:50px;
+        background: transparent;
         border:none;
-        font-size:18px;
-        font-weight:500;
+        outline:none;
         color: #fff;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        margin-left: 32%;
-        margin-bottom: 3%;
+        background: #03a9f4;
+        padding: 10px 20px;
+        cursor: pointer;
+        border-radius:5px;
     }
 
 `
