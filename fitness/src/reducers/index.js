@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux'
-import { tempReducer1 } from './tempReducer1'
-import { tempReducer2 } from './tempReducer2'
+import { usersReducer } from './usersReducer'
+import { workoutsReducer } from './workoutsReducer'
 
 export const rootReducer = combineReducers({
-    tempReducer1,
-    tempReducer2
+    usersReducer,
+    workoutsReducer
 })

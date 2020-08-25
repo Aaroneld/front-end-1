@@ -4,17 +4,17 @@ import {
     GET_USER_ERROR,
     UPDATETRUE,
     UPDATEFALSE,
-} from '../actions/tempActions1'
+} from '../actions/usersActions'
 
 const initState = {
     error: "",
     loading: false,
     shouldUpdate: false,
-    members: [],
-    coaches: [],
+    users: [],
+    instructors: [],
 }
 
-export function tempReducer1(state = initState, action){
+export function usersReducer(state = initState, action){
     switch(action.type){
 
         case GET_USER_START:
@@ -26,8 +26,7 @@ export function tempReducer1(state = initState, action){
         case GET_USER_SUCCESS:
             return {
                 ...state,
-                loading: false,
-                tempArr: [...state.tempArr, action.payload]
+                loading: false
             }
 
         case GET_USER_ERROR:
