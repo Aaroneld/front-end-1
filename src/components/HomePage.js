@@ -46,11 +46,9 @@ const HomePage = () => {
     return ( 
         <StyleExample>
             <h1>
-                Home Page<br/>
-                Styled up with Styled Components
+               Fitness Anywhere Anytime
             </h1>
-            <Link to="/list">List</Link>
-            <Link to="/list-Instructor">Instructors</Link>
+            
             <div className="sign-log">
                 <Link to="/signup">
                     <h2>Sign Up!</h2>
@@ -58,11 +56,17 @@ const HomePage = () => {
                 <Link to="/login">
                     <h2>Login!</h2>
                 </Link>
+                <Link to="/list">
+                    <h2>Class List</h2>
+                </Link>
+                <Link to="/list-Instructor">
+                    <h2>Instructors</h2>
+                </Link>
             </div>
             <section>
                 <div>
                     <h2>
-                        Placeholder - links could go here
+                        Lots of Classes
                     </h2>
                     <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Asperiores et, voluptatum, ex assumenda non delectus, consequatur accusantium explicabo incidunt unde ipsum animi blanditiis quis doloribus officiis atque? Repellendus minima harum sit, exercitationem pariatur, eaque, dolorum porro earum blanditiis vel repellat! Reiciendis neque recusandae totam expedita.</p>
                 </div>
