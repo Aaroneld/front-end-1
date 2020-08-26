@@ -7,6 +7,7 @@ import Workout from './components/users/Workout'
 import InstructorWorkout from './components/instructors/InstructorWorkout'
 import InstructorWorkoutList from './components/instructors/InstructorWorkoutList'
 import R1WorkoutForm from './components/instructors/R1WorkoutForm'
+import SearchList from './components/SearchList'
 import { Route, Link, Switch } from 'react-router-dom'
 import PrivateRoute from './utilities/PrivateRoute'
 import { connect } from 'react-redux'
@@ -46,6 +47,7 @@ function App(props) {
         <PrivateRoute path="/create">
           <R1WorkoutForm />
         </PrivateRoute>
+        <Route path="/search" component={SearchList} />
         {/* <Route path="/create" component={R1WorkoutForm} /> */}
       </Switch>
     </div>
