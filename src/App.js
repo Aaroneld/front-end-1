@@ -47,7 +47,6 @@ function App(props) {
           <R1WorkoutForm />
         </PrivateRoute>
         {/* <Route path="/create" component={R1WorkoutForm} /> */}
-        {/* We'll have private routes for member workouts and coach workouts */}
       </Switch>
     </div>
   );
