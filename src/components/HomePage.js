@@ -49,7 +49,7 @@ const HomePage = () => {
                 Home Page<br/>
                 Styled up with Styled Components
             </h1>
-            <Link to="/list">List</Link>
+            <Link to="/list">Class List</Link>
             <Link to="/list-Instructor">Instructors</Link>
             <div className="sign-log">
                 <Link to="/signup">

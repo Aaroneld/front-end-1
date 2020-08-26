@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { useParams, useHistory } from 'react-router-dom'
+import { useParams, useHistory, Link } from 'react-router-dom'
 import styled from 'styled-components'
 import { axiosAuth } from '../../utilities/apiUtilities'
 import { updateTrue } from '../../actions/usersActions'
@@ -37,20 +37,22 @@ const Workout = (props) => {
         .catch(err => console.dir(err))
     },[id])
 
-    const signUp = evt => {
-        evt.preventDefault()
-        setThisClass({
-            ...thisClass,
-            signedUp: true
-        })
-        axiosAuth().put(`https://anywhere-fitness-team2.herokuapp.com/api/auth/users/classes/${id}`, thisClass)
-        .then(res => {
-            console.log(res)
-            props.updateTrue()
-            push("/list")
-        })
-        .catch(err => console.dir(err))
-    }
+    // Just Realized from looking at back in that users have no real way of signing up to the classes as the only user type that can make put requests are the InstructorWorkoutList, perhaps I should adjust the instructor form to allow them to set the number of current members to account for users wanting to sign up
+
+    // const signUp = evt => {
+    //     evt.preventDefault()
+    //     setThisClass({
+    //         ...thisClass,
+    //         signedUp: true
+    //     })
+    //     axiosAuth().put(`https://anywhere-fitness-team2.herokuapp.com/api/auth/users/classes/${id}`, thisClass)
+    //     .then(res => {
+    //         console.log(res)
+    //         props.updateTrue()
+    //         push("/list")
+    //     })
+    //     .catch(err => console.dir(err))
+    // }
 
     return ( 
         <StyleUp>
@@ -60,7 +62,10 @@ const Workout = (props) => {
             <h3>Class Size: {thisClass.max_size}</h3>
             <p>{thisClass.location}</p>
             <p>{thisClass.date}</p>
-            <button onClick={signUp}>Sign Up?</button>
+            <Link to="/list">
+                <h2>Back to class list</h2>
+            </Link>
+            {/* <button onClick={signUp}>Sign Up?</button> */}
         </StyleUp>
      );
 }

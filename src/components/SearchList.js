@@ -1,17 +1,15 @@
 import React from 'react'
-import { connect } from 'react-redux'
-import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
-const StyleContainer = styled.div`
+const StyleSearch = styled.div`
     display: flex;
     flex-direction: column;
 `
 
-const WorkoutList = (props) => {
+const SearchList = (props) => {
     return ( 
-        <StyleContainer>
-            {props.workouts.length > 0 ? props.workouts.map(item => (
+        <StyleSearch>
+            {searchedClasses.length > 0 ? searchedClasses.map(item => (
                 <div key={item.id}>
                     <h2>
                         <Link to={`/workout/${item.id}`}>{item.name}</Link>
@@ -19,17 +17,13 @@ const WorkoutList = (props) => {
                     <h2>Ran by: {item.instructor_name}</h2>
                     <h3>Class Type: {item.type} <br/> Intensity: {item.intensity}</h3>
                     <h3>Class Size: {item.max_size}</h3>
+                    <h3>Duration: {item.duration}</h3>
                     <p>{item.location}</p>
                     <p>{item.date}</p>
-                </div>
-            )) : <div>No Workouts Available at this time</div>}
-        </StyleContainer>
+                </div> 
+                )) : <h2>No Results Found</h2>}
+        </StyleSearch>
      );
 }
-
-const mapProps = (state) => {
-    return {
-        workouts: state.workoutsReducer.workouts
-    }
-}
-export default connect(mapProps, {})(WorkoutList);
+ 
+export default SearchList;
