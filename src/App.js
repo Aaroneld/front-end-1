@@ -14,13 +14,13 @@ import { getWorkouts } from './actions/workoutsActions'
 import { updateFalse } from './actions/usersActions'
 import './App.css'
 
-function App({ getWorkouts, updateFalse, shouldUpdate }) {
+function App(props) {
 
   useEffect(() => {
     // This will fetch the workout list and set it to our redux state
-    getWorkouts()
-    updateFalse()
-  }, [shouldUpdate])
+    props.getWorkouts()
+    props.updateFalse()
+  }, [props.shouldUpdate])
 
   return (
     <div>
