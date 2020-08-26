@@ -50,6 +50,7 @@ const HomePage = () => {
                 Styled up with Styled Components
             </h1>
             <Link to="/list">List</Link>
+            <Link to="/list-Instructor">Instructors</Link>
             <div className="sign-log">
                 <Link to="/signup">
                     <h2>Sign Up!</h2>

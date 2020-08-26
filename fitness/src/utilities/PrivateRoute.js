@@ -1,10 +1,18 @@
 import React from 'react'
-import { Route } from 'react-router-dom'
+import { Route, useHistory } from 'react-router-dom'
 
-const PrivateRoute = () => {
-    return ( 
-        <h1>placeholder</h1>
-     );
+function PrivateRoute({children , path, ...rest}){
+    const { push } = useHistory();
+    if (localStorage.getItem("token")){
+        return(
+            <Route path={path}>
+                {children}
+            </Route>
+        )
+    } else {
+       push("/login");
+    }
+    return null
 }
  
 export default PrivateRoute;
