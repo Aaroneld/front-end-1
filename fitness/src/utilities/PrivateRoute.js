@@ -1,5 +1,5 @@
 import React from 'react'
-import { Route } from 'react-router-dom'
+import { Route, useHistory } from 'react-router-dom'
 
 function PrivateRoute({children , path, ...rest}){
     const { push } = useHistory();
