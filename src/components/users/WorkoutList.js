@@ -37,7 +37,7 @@ const WorkoutList = (props) => {
             name="input"
             value={searchTerms.input}
             onChange={handleChanges} />
-            <select value={searchTerms.type} name="type">
+            <select value={searchTerms.type} onChange={handleChanges} name="type">
                 <option value>Search Types</option>
                 <option>location</option>
                 <option>intensity</option> {/*Will need to work on this one*/}

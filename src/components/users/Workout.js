@@ -60,6 +60,7 @@ const Workout = (props) => {
             <h2>Ran by: {thisClass.instructor_name}</h2>
             <h3>Class Type: {thisClass.type} <br/> Intensity: {thisClass.intensity}</h3>
             <h3>Class Size: {thisClass.max_size}</h3>
+            <h3>Duration: {thisClass.duration}</h3>
             <p>{thisClass.location}</p>
             <p>{thisClass.date}</p>
             <Link to="/list">
