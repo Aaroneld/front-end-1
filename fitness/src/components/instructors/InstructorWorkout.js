@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { useParams, useHistory } from 'react-router-dom'
 
-const CoachWorkout = () => {
+const InstructorWorkout = () => {
     const { id } = useParams()
     const { push } = useHistory()
 
@@ -13,4 +13,4 @@ const CoachWorkout = () => {
      );
 }
  
-export default CoachWorkout;
+export default InstructorWorkout;

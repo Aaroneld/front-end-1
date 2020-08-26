@@ -1,36 +1,37 @@
-import {
-    GET_USER_START, 
-    GET_USER_SUCCESS, 
-    GET_USER_ERROR,
+import { 
+    GET_WORKOUTS_START,
+    GET_WORKOUTS_SUCCESS,
+    GET_WORKOUTS_ERROR
+ } from '../actions/workoutsActions'
+ import { 
     UPDATETRUE,
-    UPDATEFALSE,
-} from '../actions/tempActions1'
+    UPDATEFALSE
+  } from '../actions/usersActions'
 
 const initState = {
     error: "",
     loading: false,
-    shouldUpdate: false,
-    members: [],
-    coaches: [],
+    shouldUpddate: false,
+    workouts: []
 }
 
-export function tempReducer1(state = initState, action){
+export function workoutsReducer(state = initState, action){
     switch(action.type){
 
-        case GET_USER_START:
+        case GET_WORKOUTS_START:
             return {
                 ...state,
                 loading: true
             }
 
-        case GET_USER_SUCCESS:
+        case GET_WORKOUTS_SUCCESS:
             return {
                 ...state,
                 loading: false,
-                tempArr: [...state.tempArr, action.payload]
+                workouts: action.payload
             }
-
-        case GET_USER_ERROR:
+        
+        case GET_WORKOUTS_ERROR:
             return {
                 ...state,
                 loading: false,
@@ -40,13 +41,13 @@ export function tempReducer1(state = initState, action){
         case UPDATETRUE:
             return {
                 ...state,
-                shouldUpdate: action.payload
+                shouldUpddate: action.payload
             }
 
         case UPDATEFALSE:
             return {
                 ...state,
-                shouldUpdate: action.payload
+                shouldUpddate: action.payload
             }
 
         default:

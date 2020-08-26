@@ -1,11 +1,11 @@
 import axios from 'axios'
 
 export const UPDATETRUE = "UPDATETRUE"
-export const updateTrue = (dispatch) => {
+export const updateTrue = () => (dispatch) => {
     dispatch({ type: UPDATETRUE, payload: true})
 }
 export const UPDATEFALSE = "UPDATEFALSE"
-export const updateFlase = (dispatch) => {
+export const updateFalse = () => (dispatch) => {
     dispatch({ type: UPDATEFALSE, payload: false})
 }
 
