@@ -10,6 +10,7 @@ import { connect } from 'react-redux'
 import { getWorkouts } from './actions/workoutsActions'
 import { updateFalse } from './actions/usersActions'
 import './App.css'
+import R1WorkoutForm from './components/instructors/R1WorkoutForm'
 
 function App(props) {
 
