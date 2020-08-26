@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
 const StyleSearch = styled.div`
@@ -9,7 +10,7 @@ const StyleSearch = styled.div`
 const SearchList = (props) => {
     return ( 
         <StyleSearch>
-            {searchedClasses.length > 0 ? searchedClasses.map(item => (
+            {/* {searchedClasses.length > 0 ? searchedClasses.map(item => (
                 <div key={item.id}>
                     <h2>
                         <Link to={`/workout/${item.id}`}>{item.name}</Link>
@@ -21,7 +22,8 @@ const SearchList = (props) => {
                     <p>{item.location}</p>
                     <p>{item.date}</p>
                 </div> 
-                )) : <h2>No Results Found</h2>}
+                )) : <h2>No Results Found</h2>} */}
+                <h1>Placeholder</h1>
         </StyleSearch>
      );
 }
