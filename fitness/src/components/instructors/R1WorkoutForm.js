@@ -1,9 +1,11 @@
 import React, { useState } from 'react'
+import { axiosAuth } from '../../utilities/apiUtilities'
+import { connect } from 'react-redux'
+import { updateTrue } from '../../actions/usersActions'
+import { useHistory } from 'react-router-dom'
 
-
-// We'll need a form here for coaches to build a workout for their members, the form should have the values listed in the project docs. Use a local state to set those values into when they fill out the form and I'll take over what we need to do with that form 
-
-const R1WorkoutForm = () => {
+const R1WorkoutForm = (props) => {
+    const { push } = useHistory()
     const initiState = {
         name:"",
         instructor_name:"",
@@ -27,6 +29,13 @@ const R1WorkoutForm = () => {
 
     const handleSubmit = evt => {
         evt.preventDefault();
+        axiosAuth().post("https://anywhere-fitness-team2.herokuapp.com/api/auth/instructor/classes", newWorkout)
+        .then(res => {
+            console.log(res)
+        })
+        .catch(err => console.dir(err))
+        props.updateTrue()
+        push("/list-Instructor")
     }
 
     return ( 
@@ -113,4 +122,4 @@ const R1WorkoutForm = () => {
      );
 }
  
-export default R1WorkoutForm;
+export default connect(null, { updateTrue } )(R1WorkoutForm);
