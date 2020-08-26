@@ -49,6 +49,7 @@ const HomePage = () => {
                 Home Page<br/>
                 Styled up with Styled Components
             </h1>
+            <Link to="/list">List</Link>
             <div className="sign-log">
                 <Link to="/signup">
                     <h2>Sign Up!</h2>
