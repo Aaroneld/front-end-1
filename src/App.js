@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import HomePage from './components/HomePage'
 import R1Signup from './components/R1Signup'
 import R1Login from './components/R1Login'
@@ -14,13 +14,13 @@ import { getWorkouts } from './actions/workoutsActions'
 import { updateFalse } from './actions/usersActions'
 import './App.css'
 
-function App(props) {
+function App({ getWorkouts, updateFalse, shouldUpdate }) {
 
-  useEffect(() => {
-    // This will fetch the workout list and set it to our redux state
-    props.getWorkouts()
-    props.updateFalse()
-  }, [props.shouldUpdate])
+  // useEffect(() => {
+  //   // This will fetch the workout list and set it to our redux state
+  //   getWorkouts()
+  //   updateFalse()
+  // }, [shouldUpdate])
 
   return (
     <div>
