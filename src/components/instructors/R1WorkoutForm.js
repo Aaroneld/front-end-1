@@ -13,7 +13,7 @@ const R1WorkoutForm = (props) => {
         intensity:"",
         location:"",
         date: "", //hast to be a string in 04/19/2020 format
-        max_size: "",
+        max_size: 10,
         duration: 60.00, // has to be a float
         signedUp: false,
 
@@ -107,7 +107,7 @@ const R1WorkoutForm = (props) => {
 
             <label>Maximum Size&nbsp;
                 <input type="number"
-                name="max-size"
+                name="max_size"
                 placeholder="max size"
                 
                 value={newWorkout.max_size}

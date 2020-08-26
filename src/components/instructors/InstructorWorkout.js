@@ -20,7 +20,7 @@ const InstructorWorkout = (props) => {
         intensity: "",
         location: "",
         date: "11/10/1775",
-        max_size: "",
+        max_size: 10,
         duration: 30.00,
         signedUp: false
     }
