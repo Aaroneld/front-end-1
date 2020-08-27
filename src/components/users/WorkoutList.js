@@ -16,7 +16,6 @@ const WorkoutList = (props) => {
         type: ""
     }
     const [searchTerms, setSearchTerms] = useState(initState)
-    const [searchKey, setSearchKey] = useState("")
 
     const handleChanges = evt => {
         setSearchTerms({
@@ -26,9 +25,8 @@ const WorkoutList = (props) => {
     }
     const handleSearch = evt => {
         evt.preventDefault()
-        setSearchKey(searchTerms.type)
         let filteredClasses = props.workouts.filter(choice => (
-            choice.searchKey.includes(searchTerms.input)
+            choice.searchTerms.type.includes(searchTerms.input)
         ))
         props.searchWorkout(filteredClasses)
         console.log(filteredClasses)
