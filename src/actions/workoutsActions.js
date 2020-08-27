@@ -16,3 +16,8 @@ export const getWorkouts = () => (dispatch) => {
         dispatch({ type: GET_WORKOUTS_ERROR, payload: "An error has occured." })
     })
 }
+
+export const SEARCH_WORKOUTS  = "SEARCH_WORKOUTS"
+export const searchWorkout = terms => {
+    return { type: SEARCH_WORKOUTS, payload: terms }
+}

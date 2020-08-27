@@ -1,7 +1,8 @@
 import { 
     GET_WORKOUTS_START,
     GET_WORKOUTS_SUCCESS,
-    GET_WORKOUTS_ERROR
+    GET_WORKOUTS_ERROR,
+    SEARCH_WORKOUTS
  } from '../actions/workoutsActions'
  import { 
     UPDATETRUE,
@@ -12,7 +13,8 @@ const initState = {
     error: "",
     loading: false,
     shouldUpddate: false,
-    workouts: []
+    workouts: [],
+    searchedWorkouts: []
 }
 
 export function workoutsReducer(state = initState, action){
@@ -36,6 +38,12 @@ export function workoutsReducer(state = initState, action){
                 ...state,
                 loading: false,
                 error: action.payload
+            }
+
+        case SEARCH_WORKOUTS:
+            return {
+                ...state,
+                searchedWorkouts: action.payload
             }
 
         case UPDATETRUE:

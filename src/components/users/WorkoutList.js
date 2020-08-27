@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
 import { Link, useHistory } from 'react-router-dom'
+import { searchWorkout } from '../../actions/workoutsActions'
 import styled from 'styled-components'
 
 const StyleContainer = styled.div`
@@ -15,7 +16,7 @@ const WorkoutList = (props) => {
         type: ""
     }
     const [searchTerms, setSearchTerms] = useState(initState)
-    const [searchedClasses, setSearchedClasses] = useState([])
+    const [searchKey, setSearchKey] = useState("")
 
     const handleChanges = evt => {
         setSearchTerms({
@@ -25,10 +26,14 @@ const WorkoutList = (props) => {
     }
     const handleSearch = evt => {
         evt.preventDefault()
+        setSearchKey(searchTerms.type)
         let filteredClasses = props.workouts.filter(choice => (
-            choice.searchTerms.type.includes(searchTerms.input)
+            choice.searchKey.includes(searchTerms.input)
         ))
-        setSearchedClasses(filteredClasses)
+        props.searchWorkout(filteredClasses)
+        console.log(filteredClasses)
+        console.log(searchTerms.type)
+        push("/search")
     }
 
     return ( 
@@ -66,7 +71,8 @@ const WorkoutList = (props) => {
 
 const mapProps = (state) => {
     return {
-        workouts: state.workoutsReducer.workouts
+        workouts: state.workoutsReducer.workouts,
+        searchedWorkouts: state.workoutsReducer.searchedWorkouts
     }
 }
-export default connect(mapProps, {})(WorkoutList);
+export default connect(mapProps, { searchWorkout })(WorkoutList);
