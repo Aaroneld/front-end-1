@@ -12,15 +12,20 @@ const StyleExample = styled.div`
         display: flex;
         justify-content: space-around;
         align-items: center;
+        border: 9px solid darkred;
+        margin: 0 1%;
+        background-color: #000000e5;
         div{
             width: 30%;
             p{
-                color: black;
+                color: #c00c0ce5;
+                font-weight: bold;
+                font-size: 1.2rem;
             }
         }
         .mid-child{
-            border-left: 2px solid #999900;
-            border-right: 2px solid #999900;
+            border-left: 5px solid #999900;
+            border-right: 5px solid #999900;
             padding: 0 2%;
         }
     }
@@ -66,21 +71,27 @@ const HomePage = () => {
             <section>
                 <div>
                     <h2>
-                        Lots of Classes
+                        Lots of Classes!
                     </h2>
-                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Asperiores et, voluptatum, ex assumenda non delectus, consequatur accusantium explicabo incidunt unde ipsum animi blanditiis quis doloribus officiis atque? Repellendus minima harum sit, exercitationem pariatur, eaque, dolorum porro earum blanditiis vel repellat! Reiciendis neque recusandae totam expedita.</p>
+                    <p>
+                        When we say anytime and anywhere we mean it. Pick your favorite classes and sign right up. Having lots of options to fit your schedule is exactly what we strive for and our instructors provide. So, try out yoga for the first time. Go for a nice stretch in the park. Whatever you wanna try, where ever you wanna try it, you can look in our app and find a class to fit your needs.
+                    </p>
                 </div>
                 <div className="mid-child">
                     <h2>
-                        Placeholder - links could go here
+                        Fantastic Instructors!
                     </h2>
-                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Asperiores et, voluptatum, ex assumenda non delectus, consequatur accusantium explicabo incidunt unde ipsum animi blanditiis quis doloribus officiis atque? Repellendus minima harum sit, exercitationem pariatur, eaque, dolorum porro earum blanditiis vel repellat! Reiciendis neque recusandae totam expedita.</p>
+                    <p>
+                        Well trained highly skilled instructors to help you reach your goals. Our instructors have felxible schedules that allow them to set up so many unique and effective classes. We have instructors that teach a myriad of different classes and come from a myriad of backgrounds. So, you can even follow your favorite instructors around and maybe even try out a new type of fitness in a brand new place.
+                    </p>
                 </div>
                 <div>
                     <h2>
-                        Placeholder - links could go here
+                        Go Everywhere!
                     </h2>
-                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Asperiores et, voluptatum, ex assumenda non delectus, consequatur accusantium explicabo incidunt unde ipsum animi blanditiis quis doloribus officiis atque? Repellendus minima harum sit, exercitationem pariatur, eaque, dolorum porro earum blanditiis vel repellat! Reiciendis neque recusandae totam expedita.</p>
+                    <p>
+                        Stale old boring gym? Not in these parts. Not only does our app let you find a good workout when you don't want to or can't visit the gym, but you can also just search around and pick a workout based on new and interesting locations. You have all you need here to try something new somewhere new. The world is at your fingertips as well as the knowledge and experience of our amazing instructors. 
+                    </p>
                 </div>
             </section>
         </StyleExample>
