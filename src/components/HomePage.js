@@ -12,15 +12,20 @@ const StyleExample = styled.div`
         display: flex;
         justify-content: space-around;
         align-items: center;
+        border: 9px solid darkred;
+        margin: 0 1%;
+        background-color: #000000e5;
         div{
             width: 30%;
             p{
-                color: black;
+                color: #c00c0ce5;
+                font-weight: bold;
+                font-size: 1.2rem;
             }
         }
         .mid-child{
-            border-left: 2px solid #999900;
-            border-right: 2px solid #999900;
+            border-left: 5px solid #999900;
+            border-right: 5px solid #999900;
             padding: 0 2%;
         }
     }
@@ -69,7 +74,7 @@ const HomePage = () => {
                         Lots of Classes!
                     </h2>
                     <p>
-                        When we say anytime and anywhere we mean it. So we have lots of instructors posting tons of classes, pick and choose your favorite ones and sign right up. Having lots of options to fit your schedule is exactly what we strive for and our istructors provide. So, try out yoga for the first time. Go for a nice stretching session in the park. Whatever you wanna try, where ever you wanna try it, you can look in our app and find a class to fit your needs.
+                        When we say anytime and anywhere we mean it. Pick your favorite classes and sign right up. Having lots of options to fit your schedule is exactly what we strive for and our instructors provide. So, try out yoga for the first time. Go for a nice stretch in the park. Whatever you wanna try, where ever you wanna try it, you can look in our app and find a class to fit your needs.
                     </p>
                 </div>
                 <div className="mid-child">

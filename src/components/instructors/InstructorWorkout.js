@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { useParams, useHistory } from 'react-router-dom'
+import { useParams, useHistory, Link } from 'react-router-dom'
 import styled from 'styled-components'
 import { axiosAuth } from '../../utilities/apiUtilities'
 import { updateTrue } from '../../actions/usersActions'
@@ -8,6 +8,38 @@ import { connect } from 'react-redux'
 const StyleSimply = styled.div`
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    form{
+        display: flex;
+        flex-direction: column;
+        width: 60%;
+        input, select, button{
+            margin-bottom: 5%;
+        }
+        input{
+            height: 3vh;
+        }
+        select{
+            height: 4vh;
+        }
+        button{
+            text-transform: uppercase;
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+        .delete-workout{
+            color: red;
+        }
+    }
+    a{
+        text-decoration: underline;
+        color: blue;
+        &:hover{
+            color: darkred;
+        }
+    }
 `
 
 const InstructorWorkout = (props) => {
@@ -113,6 +145,9 @@ const InstructorWorkout = (props) => {
                 <button className="update-workout" onClick={handleUpdate}>Update Class</button>
                 <button className="delete-workout" onClick={handleDelete}>!Delete Class!</button>
             </form>
+            <Link to="/list-instructor">
+                <h2>Back to Class List</h2>
+            </Link>
         </StyleSimply>
      );
 }

@@ -9,6 +9,46 @@ import styled from 'styled-components'
 const StyleSection = styled.div`
     display: flex;
     flex-direction: column;
+    align-items: center;
+    width: 100%;
+    .search-bar{
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        margin-bottom: 2%;
+        .text-box{
+            width: 30%;
+        }
+        .search-type{
+            width: 30%;
+        }
+    }
+    .create{
+        text-decoration: underline;
+        text-transform: uppercase;
+        color: darkred;
+        &:hover{
+            color: blue;
+        }
+    }
+    .list{
+        border: 20px solid darkred;
+        background-color: lightgray;
+        width: 40%;
+        margin-bottom: 1%;
+        font-weight: bold;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        a{
+            text-decoration: underline;
+            text-transform: uppercase;
+            color: #999900;
+            &:hover {
+            color: darkred;
+            }
+        }
+    }
 `
 
 const InstructorWorkoutList = (props) => {
@@ -36,27 +76,31 @@ const InstructorWorkoutList = (props) => {
 
     return ( 
         <StyleSection>
-            <input type="text"
-            name="input"
-            value={searchTerms.input}
-            onChange={handleChanges} />
-            <select value={searchTerms.type} onChange={handleChanges} name="type">
-                <option value>Search Types</option>
-                <option>location</option>
-                <option>intensity</option> {/*Will need to work on this one*/}
-                <option>duration</option> {/*Will need to work on this one too*/}
-                <option>type</option>
-                <option>instructor_name</option>
-            </select>
+            <div className="search-bar">
+                <input type="text"
+                name="input"
+                value={searchTerms.input}
+                placeholder="Search term"
+                onChange={handleChanges} 
+                className="text-box" />
+                <select value={searchTerms.type} onChange={handleChanges} name="type" className="search-type">
+                    <option value>Search Types</option>
+                    <option>location</option>
+                    <option>intensity</option> {/*Will need to work on this one*/}
+                    <option>duration</option> {/*Will need to work on this one too*/}
+                    <option>type</option>
+                    <option>instructor_name</option>
+                </select>
 
-            <button onClick={handleSearch}>SEARCH</button>
+                <button onClick={handleSearch}>SEARCH</button>
+            </div>
 
-            <Link to="/create">
+            <Link to="/create" className="create">
                 <h2>Create a New Workout Class</h2>
             </Link>
 
             {props.workouts.length > 0 ? props.workouts.map(item => (
-                <div key={item.id}>
+                <div key={item.id} className="list">
                     <h2>
                         <Link to={`/workout-Instructor/${item.id}`}>{item.name}</Link>
                     </h2>
