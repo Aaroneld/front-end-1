@@ -10,6 +10,19 @@ import { connect } from 'react-redux'
 const StyleUp = styled.div`
     display: flex;
     flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    a{
+        text-decoration: underline;
+        color: blue;
+        &:hover{
+            color: darkred;
+        }
+    }
+    p{
+        font-weight: bold;
+        text-transform: uppercase;
+    }
 `
 
 const Workout = (props) => {
@@ -64,7 +77,7 @@ const Workout = (props) => {
             <p>{thisClass.location}</p>
             <p>{thisClass.date}</p>
             <Link to="/list">
-                <h2>Back to class list</h2>
+                <h2>Back to Class List</h2>
             </Link>
             {/* <button onClick={signUp}>Sign Up?</button> */}
         </StyleUp>

@@ -1,11 +1,44 @@
 import React, { useState } from 'react'
 import { connect } from 'react-redux'
 import { Link, useHistory } from 'react-router-dom'
+import { searchWorkout } from '../../actions/workoutsActions'
 import styled from 'styled-components'
 
 const StyleContainer = styled.div`
     display: flex;
     flex-direction: column;
+    align-items: center;
+    width: 100%;
+    .search-bar{
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        margin-bottom: 2%;
+        .text-box{
+            width: 30%;
+        }
+        .search-type{
+            width: 30%;
+        }
+    }
+    .list{
+        border: 20px solid darkred;
+        background-color: lightgray;
+        width: 40%;
+        margin-bottom: 1%;
+        font-weight: bold;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        a{
+            text-decoration: underline;
+            text-transform: uppercase;
+            color: #999900;
+            &:hover {
+            color: darkred;
+            }
+        }
+    }
 `
 
 const WorkoutList = (props) => {
@@ -15,7 +48,6 @@ const WorkoutList = (props) => {
         type: ""
     }
     const [searchTerms, setSearchTerms] = useState(initState)
-    const [searchedClasses, setSearchedClasses] = useState([])
 
     const handleChanges = evt => {
         setSearchTerms({
@@ -28,28 +60,35 @@ const WorkoutList = (props) => {
         let filteredClasses = props.workouts.filter(choice => (
             choice.searchTerms.type.includes(searchTerms.input)
         ))
-        setSearchedClasses(filteredClasses)
+        props.searchWorkout(filteredClasses)
+        console.log(filteredClasses)
+        console.log(searchTerms.type)
+        push("/search")
     }
 
     return ( 
         <StyleContainer>
-            <input type="text"
-            name="input"
-            value={searchTerms.input}
-            onChange={handleChanges} />
-            <select value={searchTerms.type} onChange={handleChanges} name="type">
-                <option value>Search Types</option>
-                <option>location</option>
-                <option>intensity</option> {/*Will need to work on this one*/}
-                <option>duration</option> {/*Will need to work on this one too*/}
-                <option>type</option>
-                <option>instructor_name</option>
-            </select>
+            <div className="search-bar">
+                <input type="text"
+                name="input"
+                placeholder="Search term"
+                value={searchTerms.input}
+                onChange={handleChanges} 
+                className="text-box" />
+                <select value={searchTerms.type} onChange={handleChanges} name="type" className="search-type">
+                    <option value>Search Types</option>
+                    <option>location</option>
+                    <option>intensity</option> {/*Will need to work on this one*/}
+                    <option>duration</option> {/*Will need to work on this one too*/}
+                    <option>type</option>
+                    <option>instructor_name</option>
+                </select>
 
-            <button onClick={handleSearch}>SEARCH</button>
+                <button onClick={handleSearch}>SEARCH</button>
+            </div>
 
             {props.workouts.length > 0 ? props.workouts.map(item => (
-                <div key={item.id}>
+                <div key={item.id} className="list">
                     <h2>
                         <Link to={`/workout/${item.id}`}>{item.name}</Link>
                     </h2>
@@ -66,7 +105,8 @@ const WorkoutList = (props) => {
 
 const mapProps = (state) => {
     return {
-        workouts: state.workoutsReducer.workouts
+        workouts: state.workoutsReducer.workouts,
+        searchedWorkouts: state.workoutsReducer.searchedWorkouts
     }
 }
-export default connect(mapProps, {})(WorkoutList);
+export default connect(mapProps, { searchWorkout })(WorkoutList);
